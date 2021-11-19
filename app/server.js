@@ -1,28 +1,18 @@
 "use strict";
 
-const express = require("express");
 const http = require("http");
-const path = require("path");
+const { join } = require("path");
+require("dotenv").config({ path: join(__dirname, "..", ".env") });
 
-const PORT = process.env.NODE_ENV === "production" ? process.env.PORT : 8000;
+const isProduction = process.env.NODE_ENV === "production" ? true : false; 
+const PORT = isProduction ? process.env.PORT : 8000;
 
-const app = express();
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(express.static(path.join(__dirname, "..", "public")));
-
-app.get("/", (req, res) => {
-  res.send("Bienvenido a mi Curriculum por: Genesis Trias");
-});
-
-app.get("*", (req, res) => {
-  res.send("Error 404: Not found");
-});
-
+const app = isProduction
+  ? require("./app.prod")
+  : require("./app.dev");
 
 const server = http.createServer(app);
 
-server.listen(8000, () => {
+server.listen(...isProduction ? [ PORT ] : [ PORT, () => {
   console.log(`Server running at: 'http://localhost:${PORT}`)
-});
+}]);
