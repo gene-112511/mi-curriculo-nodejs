@@ -1,0 +1,24 @@
+{
+  "name": "mi-curriculo-nodejs",
+  "version": "1.0.0",
+  "description": "Curriculo web personal sobre mis proyectos de desarrollo.",
+  "main": "n/a",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gene-112511/mi-curriculo-nodejs.git"
+  },
+  "keywords": [
+    "cv",
+    "curriculum",
+    "web-cv"
+  ],
+  "author": "Genesis Trias",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gene-112511/mi-curriculo-nodejs/issues"
+  },
+  "homepage": "https://github.com/gene-112511/mi-curriculo-nodejs#readme"
+}
